@@ -303,12 +303,12 @@ dot.addEventListener("click", function(){
         return;
     } else if (secondNumberArray.includes(".")){
         return;
-    } else if (operatorCheck === false && !firstNumberArray.includes("0")){
+    } else if (operatorCheck === false && firstNumber === ""){
         firstNumberArray.push("0");
         firstNumberArray.push(".");
         firstNumber = firstNumberArray.join("");
         updateBigDisplay();     
-    } else if (operatorCheck === true && !secondNumberArray.includes("0")){
+    } else if (operatorCheck === true && secondNumber === ""){
         secondNumberArray.push("0");
         secondNumberArray.push(".");
         secondNumber = secondNumberArray.join("");
