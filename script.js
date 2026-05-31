@@ -4,6 +4,7 @@ const multiplication = document.querySelector("#multiplicate");
 const division = document.querySelector("#divide");
 const equal = document.querySelector("#equal");
 const reset = document.querySelector("#delete");
+const clear = document.querySelector("#clear");
 
 const zero = document.querySelector("#zero");
 const one = document.querySelector("#one");
@@ -17,15 +18,22 @@ const eight = document.querySelector("#eight");
 const nine = document.querySelector("#nine");
 
 const dot = document.querySelector("#dot");
-const paranthesisOpen = document.querySelector("#paranthesis-open");
-const paranthesisClose = document.querySelector("#paranthesis-close");
-const percentage = document.querySelector("#percentage");
 
-let operator;
-let operatorCheck;
+const bigScreen = document.querySelector(".screen-text-big")
+const smallScreen = document.querySelector(".screen-text-small")
+
+let firstNumberArray = [];
+let secondNumberArray = [];
+let firstNumberCopy = "";
+let secondNumberCopy = "";
+let operatorCopy = "";
+let firstNumber = "";
+let secondNumber = "";
+let operator = ""; //change this to whatever operator the user wants to use
+let operatorCheck = false; //change this to true when operator is in use and false if not
 
 function add(a, b){
-    return a + b;
+    return parseFloat(a) + parseFloat(b);
 };
 
 function substract(a, b){
@@ -37,99 +45,283 @@ function multiplicate(a, b){
 };
 
 function divide(a, b){
+    if (secondNumber === "0"){
+        smallScreen.textContent = "";
+        bigScreen.textContent = "ERROR";
+        firstNumberArray.length = 0;
+        secondNumberArray.length = 0;
+        firstNumberCopy = "";
+        secondNumberCopy = "";
+        operatorCopy = "";
+        firstNumber = "";
+        secondNumber = "";
+        operator = "";
+        operatorCheck = false;
+        return;
+    }
     return a / b;
 };
 
+function updateSmallDisplay(){
+    smallScreen.textContent = firstNumberCopy + " " + operatorCopy + " " + secondNumberCopy;
+};
+
+function updateBigDisplay(){
+    bigScreen.textContent = firstNumber + " " + operator + " " + secondNumber;
+};
+
 function evaluate(a, b){
+    firstNumberCopy = firstNumber;
+    secondNumberCopy = secondNumber;
+    operatorCopy = operator;
     if (operator === "+"){
-        return add(a, b);
+        firstNumber = add(a, b);
+        if (firstNumber % 1 !== 0){
+            firstNumber = firstNumber.toFixed(4);
+        }
     } else if (operator === "-"){
-        return substract(a, b);
+        firstNumber = substract(a, b);
+        if (firstNumber % 1 !== 0){
+            firstNumber = firstNumber.toFixed(4);
+        }
     } else if (operator === "x"){
-        return multiplicate(a, b);
-    } else if (operator === "÷"){
-        return divide(a, b);
+        firstNumber = multiplicate(a, b);
+        if (firstNumber % 1 !== 0){
+            firstNumber = firstNumber.toFixed(4);
+        }
+    } else if (operator === "/"){
+        firstNumber = divide(a, b);
+        if (firstNumber % 1 !== 0){
+            firstNumber = firstNumber.toFixed(4);
+        }
     }
+    firstNumberArray.length = 0;
+    secondNumberArray.length = 0;
+    secondNumber = "";
+    operator = "";
+    operatorCheck = false;
+    updateBigDisplay();
+    updateSmallDisplay();
 };
 
 zero.addEventListener("click", function(){
-    console.log("zero");
+    if (operatorCheck === false && firstNumberArray[0] === "0" && firstNumberArray[1] !== "."){
+        return;
+    } else if (operatorCheck === true && secondNumberArray[0] === "0" && secondNumberArray[1] !== "."){
+        return;
+    } else if (operatorCheck === false){
+        firstNumberArray.push("0");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true){
+        secondNumberArray.push("0");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    }
 });
 
 one.addEventListener("click", function(){
-    console.log("one");
+    if (operatorCheck === false){
+        firstNumberArray.push("1");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true){
+        secondNumberArray.push("1");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    }
 });
 
 two.addEventListener("click", function(){
-    console.log("two");
+    if (operatorCheck === false){
+        firstNumberArray.push("2");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true){
+        secondNumberArray.push("2");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    }
 });
 
 three.addEventListener("click", function(){
-    console.log("three");
+    if (operatorCheck === false){
+        firstNumberArray.push("3");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true){
+        secondNumberArray.push("3");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    }
 });
 
 four.addEventListener("click", function(){
-    console.log("four");
+    if (operatorCheck === false){
+        firstNumberArray.push("4");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true){
+        secondNumberArray.push("4");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    }
 });
 
 five.addEventListener("click", function(){
-    console.log("five");
+    if (operatorCheck === false){
+        firstNumberArray.push("5");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true){
+        secondNumberArray.push("5");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    }
 });
 
 six.addEventListener("click", function(){
-    console.log("six");
+    if (operatorCheck === false){
+        firstNumberArray.push("6");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true){
+        secondNumberArray.push("6");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    }
 });
 
 seven.addEventListener("click", function(){
-    console.log("seven");
+    if (operatorCheck === false){
+        firstNumberArray.push("7");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true){
+        secondNumberArray.push("7");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    }
 });
 
 eight.addEventListener("click", function(){
-    console.log("eight");
+    if (operatorCheck === false){
+        firstNumberArray.push("8");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true){
+        secondNumberArray.push("8");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    }
 });
 
 nine.addEventListener("click", function(){
-    console.log("nine");
+    if (operatorCheck === false){
+        firstNumberArray.push("9");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true){
+        secondNumberArray.push("9");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    }
 });
 
 equal.addEventListener("click", function(){
-    console.log("equal");
+    evaluate(firstNumber, secondNumber);
 });
 
 addition.addEventListener("click", function(){
-    console.log("add");
+    if (operatorCheck === true && secondNumberArray.length !== 0){
+        evaluate(firstNumber, secondNumber);
+    }
+    operator = "+";
+    operatorCheck = true;
+    updateBigDisplay();
 });
 
 substraction.addEventListener("click", function(){
-    console.log("substract");
+    if (operatorCheck === true && secondNumberArray.length !== 0){
+        evaluate(firstNumber, secondNumber);
+    }
+    operator = "-";
+    operatorCheck = true;
+    updateBigDisplay();
 });
 
 multiplication.addEventListener("click", function(){
-    console.log("multiplicate");
+    if (operatorCheck === true && secondNumberArray.length !== 0){
+        evaluate(firstNumber, secondNumber);
+    }
+    operator = "x";
+    operatorCheck = true;
+    updateBigDisplay();
 });
 
 division.addEventListener("click", function(){
-    console.log("divide");
+    if (operatorCheck === true && secondNumberArray.length !== 0){
+        evaluate(firstNumber, secondNumber);
+    }
+    operator = "/";
+    operatorCheck = true;
+    updateBigDisplay();
 });
 
 reset.addEventListener("click", function(){
-    console.log("delete/reset");
+    if (operatorCheck === false && firstNumberArray.length > 0){
+        firstNumberArray.pop();
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true && secondNumberArray.length > 0){
+        secondNumberArray.pop();
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true && secondNumber === ""){
+        operator = "";
+        operatorCheck = false;
+        updateBigDisplay();
+    }
 });
 
-percentage.addEventListener("click", function(){
-    console.log("percentage");
-});
-
-paranthesisClose.addEventListener("click", function(){
-    console.log(")");
-});
-
-paranthesisOpen.addEventListener("click", function(){
-    console.log("(");
-});
+clear.addEventListener("click", function(){
+    firstNumberArray.length = 0;
+    secondNumberArray.length = 0;
+    firstNumberCopy = "";
+    secondNumberCopy = "";
+    operatorCopy = "";
+    firstNumber = "";
+    secondNumber = "";
+    operator = "";
+    operatorCheck = false;
+    updateBigDisplay();
+    updateSmallDisplay();
+})
 
 dot.addEventListener("click", function(){
-    console.log(".");
+    if (firstNumberArray.includes(".") && operatorCheck === false){
+        return;
+    } else if (secondNumberArray.includes(".")){
+        return;
+    } else if (operatorCheck === false && !firstNumberArray.includes("0")){
+        firstNumberArray.push("0");
+        firstNumberArray.push(".");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();     
+    } else if (operatorCheck === true && !secondNumberArray.includes("0")){
+        secondNumberArray.push("0");
+        secondNumberArray.push(".");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === false){
+        firstNumberArray.push(".");
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true){
+        secondNumberArray.push(".");
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    }    
 });
 
 
