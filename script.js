@@ -77,22 +77,22 @@ function evaluate(a, b){
     if (operator === "+"){
         firstNumber = add(a, b);
         if (firstNumber % 1 !== 0){
-            firstNumber = firstNumber.toFixed(4);
+            firstNumber = firstNumber.toFixed(1);
         }
     } else if (operator === "-"){
         firstNumber = substract(a, b);
         if (firstNumber % 1 !== 0){
-            firstNumber = firstNumber.toFixed(4);
+            firstNumber = firstNumber.toFixed(1);
         }
     } else if (operator === "x"){
         firstNumber = multiplicate(a, b);
         if (firstNumber % 1 !== 0){
-            firstNumber = firstNumber.toFixed(4);
+            firstNumber = firstNumber.toFixed(1);
         }
     } else if (operator === "/"){
         firstNumber = divide(a, b);
         if (firstNumber % 1 !== 0){
-            firstNumber = firstNumber.toFixed(4);
+            firstNumber = firstNumber.toFixed(1);
         }
     }
     firstNumberArray.length = 0;
@@ -104,7 +104,7 @@ function evaluate(a, b){
     updateSmallDisplay();
 };
 
-zero.addEventListener("click", function(){
+function addZero(){
     if (operatorCheck === false && firstNumberArray[0] === "0" && firstNumberArray[1] !== "."){
         return;
     } else if (operatorCheck === true && secondNumberArray[0] === "0" && secondNumberArray[1] !== "."){
@@ -118,9 +118,9 @@ zero.addEventListener("click", function(){
         secondNumber = secondNumberArray.join("");
         updateBigDisplay();
     }
-});
+};
 
-one.addEventListener("click", function(){
+function addOne(){
     if (operatorCheck === false){
         firstNumberArray.push("1");
         firstNumber = firstNumberArray.join("");
@@ -130,9 +130,9 @@ one.addEventListener("click", function(){
         secondNumber = secondNumberArray.join("");
         updateBigDisplay();
     }
-});
+};
 
-two.addEventListener("click", function(){
+function addTwo(){
     if (operatorCheck === false){
         firstNumberArray.push("2");
         firstNumber = firstNumberArray.join("");
@@ -142,9 +142,9 @@ two.addEventListener("click", function(){
         secondNumber = secondNumberArray.join("");
         updateBigDisplay();
     }
-});
+};
 
-three.addEventListener("click", function(){
+function addThree(){
     if (operatorCheck === false){
         firstNumberArray.push("3");
         firstNumber = firstNumberArray.join("");
@@ -154,9 +154,9 @@ three.addEventListener("click", function(){
         secondNumber = secondNumberArray.join("");
         updateBigDisplay();
     }
-});
+};
 
-four.addEventListener("click", function(){
+function addFour(){
     if (operatorCheck === false){
         firstNumberArray.push("4");
         firstNumber = firstNumberArray.join("");
@@ -166,9 +166,9 @@ four.addEventListener("click", function(){
         secondNumber = secondNumberArray.join("");
         updateBigDisplay();
     }
-});
+};
 
-five.addEventListener("click", function(){
+function addFive(){
     if (operatorCheck === false){
         firstNumberArray.push("5");
         firstNumber = firstNumberArray.join("");
@@ -178,9 +178,9 @@ five.addEventListener("click", function(){
         secondNumber = secondNumberArray.join("");
         updateBigDisplay();
     }
-});
+};
 
-six.addEventListener("click", function(){
+function addSix(){
     if (operatorCheck === false){
         firstNumberArray.push("6");
         firstNumber = firstNumberArray.join("");
@@ -190,9 +190,9 @@ six.addEventListener("click", function(){
         secondNumber = secondNumberArray.join("");
         updateBigDisplay();
     }
-});
+};
 
-seven.addEventListener("click", function(){
+function addSeven(){
     if (operatorCheck === false){
         firstNumberArray.push("7");
         firstNumber = firstNumberArray.join("");
@@ -202,9 +202,9 @@ seven.addEventListener("click", function(){
         secondNumber = secondNumberArray.join("");
         updateBigDisplay();
     }
-});
+};
 
-eight.addEventListener("click", function(){
+function addEight(){
     if (operatorCheck === false){
         firstNumberArray.push("8");
         firstNumber = firstNumberArray.join("");
@@ -214,9 +214,9 @@ eight.addEventListener("click", function(){
         secondNumber = secondNumberArray.join("");
         updateBigDisplay();
     }
-});
+};
 
-nine.addEventListener("click", function(){
+function addNine(){
     if (operatorCheck === false){
         firstNumberArray.push("9");
         firstNumber = firstNumberArray.join("");
@@ -226,91 +226,9 @@ nine.addEventListener("click", function(){
         secondNumber = secondNumberArray.join("");
         updateBigDisplay();
     }
-});
+};
 
-equal.addEventListener("click", function(){
-    if (secondNumber === ""){
-        return;
-    }
-    evaluate(firstNumber, secondNumber);
-});
-
-addition.addEventListener("click", function(){
-    if(firstNumber === ""){
-        return;
-    }
-    if (operatorCheck === true && secondNumberArray.length !== 0){
-        evaluate(firstNumber, secondNumber);
-    }
-    operator = "+";
-    operatorCheck = true;
-    updateBigDisplay();
-});
-
-substraction.addEventListener("click", function(){
-    if (operatorCheck === true && secondNumberArray.length !== 0){
-        evaluate(firstNumber, secondNumber);
-    }
-    operator = "-";
-    operatorCheck = true;
-    updateBigDisplay();
-});
-
-multiplication.addEventListener("click", function(){
-    if(firstNumber === ""){
-        return;
-    }
-    if (operatorCheck === true && secondNumberArray.length !== 0){
-        evaluate(firstNumber, secondNumber);
-    }
-    operator = "x";
-    operatorCheck = true;
-    updateBigDisplay();
-});
-
-division.addEventListener("click", function(){
-    if(firstNumber === ""){
-        return;
-    }
-    if (operatorCheck === true && secondNumberArray.length !== 0){
-        evaluate(firstNumber, secondNumber);
-    }
-    operator = "/";
-    operatorCheck = true;
-    updateBigDisplay();
-});
-
-reset.addEventListener("click", function(){
-    if (operatorCheck === false && firstNumberArray.length > 0){
-        firstNumberArray.pop();
-        firstNumber = firstNumberArray.join("");
-        updateBigDisplay();
-    } else if (operatorCheck === true && secondNumberArray.length > 0){
-        secondNumberArray.pop();
-        secondNumber = secondNumberArray.join("");
-        updateBigDisplay();
-    } else if (operatorCheck === true && secondNumber === ""){
-        operator = "";
-        operatorCheck = false;
-        updateBigDisplay();
-    }
-});
-
-clear.addEventListener("click", function(){
-    firstNumberArray.length = 0;
-    secondNumberArray.length = 0;
-    firstNumberCopy = "";
-    secondNumberCopy = "";
-    operatorCopy = "";
-    firstNumber = "";
-    secondNumber = "";
-    operator = "";
-    operatorCheck = false;
-    updateBigDisplay();
-    updateSmallDisplay();
-})
-
-dot.addEventListener("click", function(){
+function addDot(){
     if (firstNumberArray.includes(".") && operatorCheck === false){
         return;
     } else if (secondNumberArray.includes(".")){
@@ -333,7 +251,131 @@ dot.addEventListener("click", function(){
         secondNumberArray.push(".");
         secondNumber = secondNumberArray.join("");
         updateBigDisplay();
-    }    
-});
+    }
+};
+
+function operatorAdd(){
+    if(firstNumber === ""){
+        return;
+    }
+    if (operatorCheck === true && secondNumberArray.length !== 0){
+        evaluate(firstNumber, secondNumber);
+    }
+    operator = "+";
+    operatorCheck = true;
+    updateBigDisplay();
+};
+
+function operatorSubstract(){
+    if (operatorCheck === true && secondNumberArray.length !== 0){
+        evaluate(firstNumber, secondNumber);
+    }
+    operator = "-";
+    operatorCheck = true;
+    updateBigDisplay();
+};
+
+function operatorMultiplicate(){
+    if(firstNumber === ""){
+        return;
+    }
+    if (operatorCheck === true && secondNumberArray.length !== 0){
+        evaluate(firstNumber, secondNumber);
+    }
+    operator = "x";
+    operatorCheck = true;
+    updateBigDisplay();
+};
+
+function operatorDivide(){
+    if(firstNumber === ""){
+        return;
+    }
+    if (operatorCheck === true && secondNumberArray.length !== 0){
+        evaluate(firstNumber, secondNumber);
+    }
+    operator = "/";
+    operatorCheck = true;
+    updateBigDisplay();
+};
+
+function operatorEqual(){
+    if (secondNumber === ""){
+        return;
+    }
+    evaluate(firstNumber, secondNumber);
+};
+
+function deleteOne(){
+    if (operatorCheck === false && firstNumberArray.length > 0){
+        firstNumberArray.pop();
+        firstNumber = firstNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true && secondNumberArray.length > 0){
+        secondNumberArray.pop();
+        secondNumber = secondNumberArray.join("");
+        updateBigDisplay();
+    } else if (operatorCheck === true && secondNumber === ""){
+        operator = "";
+        operatorCheck = false;
+        updateBigDisplay();
+    }
+};
+
+zero.addEventListener("click", () => addZero());
+one.addEventListener("click", () => addOne());
+two.addEventListener("click", () => addTwo());
+three.addEventListener("click", () => addThree());
+four.addEventListener("click", () => addFour());
+five.addEventListener("click", () => addFive());
+six.addEventListener("click", () => addSix());
+seven.addEventListener("click", () => addSeven());
+eight.addEventListener("click", () => addEight());
+nine.addEventListener("click", () => addNine());
+dot.addEventListener("click", () => addDot());
+addition.addEventListener("click", () => operatorAdd());
+equal.addEventListener("click", () => operatorEqual());
+substraction.addEventListener("click", () => operatorSubstract());
+multiplication.addEventListener("click", () => operatorMultiplicate());
+division.addEventListener("click", () => operatorDivide());
+reset.addEventListener("click", () => deleteOne());
+
+
+document.onkeydown = function(e){
+    const key = e;
+    console.log(e);
+    switch (key.key){
+        case "1": addOne(); break;
+        case "2": addTwo(); break;
+        case "3": addThree(); break;
+        case "4": addFour(); break;
+        case "5": addFive(); break;
+        case "6": addSix(); break;
+        case "7": addSeven(); break;
+        case "8": addEight(); break;
+        case "9": addNine(); break;
+        case ".": addDot(); break;
+        case "+": operatorAdd(); break;
+        case "-": operatorSubstract(); break;
+        case "*": operatorMultiplicate(); break;
+        case "/": operatorDivide(); break;
+        case "Enter": operatorEqual(); break;
+        case "Backspace": deleteOne(); break;
+    }
+};
+
+clear.addEventListener("click", function(){
+    firstNumberArray.length = 0;
+    secondNumberArray.length = 0;
+    firstNumberCopy = "";
+    secondNumberCopy = "";
+    operatorCopy = "";
+    firstNumber = "";
+    secondNumber = "";
+    operator = "";
+    operatorCheck = false;
+    updateBigDisplay();
+    updateSmallDisplay();
+})
 
 
