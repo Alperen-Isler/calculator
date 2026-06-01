@@ -30,17 +30,9 @@ Through this project, I practiced:
 - Addition, subtraction, multiplication, and division
 - Clear and delete functionality
 - Decimal support
-- Keyboard support (optional)
+- Keyboard support
 - Error handling
-- Responsive design
 - Interactive button animations
-
-## 📂 Project Structure
-
-project-folder/
-│── index.html
-│── style.css
-└── script.js
 
 ## 💡 Challenges
 
@@ -52,10 +44,6 @@ Some challenges I worked through during this project included:
 - Dealing with division by zero
 - Updating the display dynamically
 
-## 📖 Assignment
-
-This project is part of the JavaScript curriculum from The Odin Project.
-
 ## ✨ Author
 
-Created by [Your Name]
+Created by Alperen Isler
