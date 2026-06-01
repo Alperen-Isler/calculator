@@ -229,10 +229,16 @@ nine.addEventListener("click", function(){
 });
 
 equal.addEventListener("click", function(){
+    if (secondNumber === ""){
+        return;
+    }
     evaluate(firstNumber, secondNumber);
 });
 
 addition.addEventListener("click", function(){
+    if(firstNumber === ""){
+        return;
+    }
     if (operatorCheck === true && secondNumberArray.length !== 0){
         evaluate(firstNumber, secondNumber);
     }
@@ -251,6 +257,9 @@ substraction.addEventListener("click", function(){
 });
 
 multiplication.addEventListener("click", function(){
+    if(firstNumber === ""){
+        return;
+    }
     if (operatorCheck === true && secondNumberArray.length !== 0){
         evaluate(firstNumber, secondNumber);
     }
@@ -260,6 +269,9 @@ multiplication.addEventListener("click", function(){
 });
 
 division.addEventListener("click", function(){
+    if(firstNumber === ""){
+        return;
+    }
     if (operatorCheck === true && secondNumberArray.length !== 0){
         evaluate(firstNumber, secondNumber);
     }
