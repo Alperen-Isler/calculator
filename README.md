@@ -6,7 +6,7 @@ This project combines everything learned so far, including HTML, CSS, DOM manipu
 
 ## Live Demo
 
-👉 https://alperen-isler.github.io/calculator/
+https://alperen-isler.github.io/calculator/
 
 ## Technologies Used
 
