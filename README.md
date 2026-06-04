@@ -1,6 +1,6 @@
 # Calculator
 
-This is a simple calculator project built with HTML, CSS, and JavaScript as part of The Odin Project. It runs in the browser and lets you do basic math operations like addition, subtraction, multiplication, and division.
+This is a simple calculator project which I have built with HTML, CSS, and JavaScript as part of The Odin Project. It runs in the browser and lets you do basic math operations like addition, subtraction, multiplication, and division.
 
 This project combines everything learned so far, including HTML, CSS, DOM manipulation, event handling and JavaScript logic to create an interactive calculator.
 
