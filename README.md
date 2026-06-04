@@ -1,49 +1,39 @@
-# Calculator 🧮
+# Calculator
 
-A fully functional calculator built with HTML, CSS, and JavaScript as part of The Odin Project.
+This is a simple calculator project built with HTML, CSS, and JavaScript as part of The Odin Project. It runs in the browser and lets you do basic math operations like addition, subtraction, multiplication, and division.
 
-This project combines everything learned so far, including DOM manipulation, event handling, and JavaScript logic, to create an interactive calculator that performs basic arithmetic operations.
+This project combines everything learned so far, including HTML, CSS, DOM manipulation, event handling and JavaScript logic to create an interactive calculator.
 
-## 🚀 Live Demo
+## Live Demo
 
-👉 (https://alperen-isler.github.io/calculator/)
+👉 https://alperen-isler.github.io/calculator/
 
-## 📚 What I Learned
+## Technologies Used
 
-Through this project, I practiced:
+- HTML
+- CSS
+- JavaScript
 
-- Building complex JavaScript logic
-- DOM manipulation
-- Event handling
-- Working with functions and operators
-- Managing application state
-- Handling edge cases and user input
+## Features
 
-## 🛠️ Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript (Vanilla JS)
-
-## 🎮 Features
-
-- Addition, subtraction, multiplication, and division
-- Clear and delete functionality
+- Basic math operations (+, −, ×, ÷)
+- Clear button to reset everything
+- Delete button to remove the last input
 - Decimal support
 - Keyboard support
 - Error handling
-- Interactive button animations
+- Works fully in the browser
 
-## 💡 Challenges
+## Challenges
 
 Some challenges I worked through during this project included:
 
-- Managing calculator state between operations
+- Debugging when things don’t work as expected
 - Preventing invalid inputs
 - Handling decimal calculations
-- Dealing with division by zero
+- Thinking about edge cases (like dividing by zero)
 - Updating the display dynamically
 
-## ✨ Author
+## Author
 
 Created by Alperen Isler
