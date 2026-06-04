@@ -31,6 +31,7 @@ Some challenges I worked through during this project included:
 - Debugging when things don’t work as expected
 - Preventing invalid inputs
 - Handling decimal calculations
+- Handling keyboard input
 - Thinking about edge cases (like dividing by zero)
 - Updating the display dynamically
 
